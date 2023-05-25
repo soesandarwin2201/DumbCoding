@@ -7,8 +7,9 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { AiOutlineReddit } from 'react-icons/ai'
 
 const Nav = () => {
-     const isUserLogIn = false;
+     const isUserLogIn = true;
      const [providers, setProviders ] = useState(null);
+     const [toggle, setToggle] = useState(false);
 
      useEffect(() => {
           const setProviders = async () => {
@@ -17,7 +18,8 @@ const Nav = () => {
                setProviders(response);
           }
           setProviders();
-     },[])
+     },[]);
+
   return (
     <nav className="flex-between w-full mb-16 pt-3">
      <Link href='/' className="flex gap-2 flex-center logo_text">
@@ -54,6 +56,53 @@ const Nav = () => {
                </>
           )
        }
+     </div>
+
+     <div className="sm:hidden flex relative">
+          { 
+          isUserLogIn? (
+               <div className="flex">
+                    <Image src='/assets/images/logo.svg' width={37} height={37} className="rounded-full" alt="use profile" onClick={() => setToggle((current) => !current)} />
+
+                    {
+                        toggle && (
+                         <div className="dropdown">
+                                   <Link 
+                                   href='/profile'
+                                   className="dropdown_link items-center" 
+                                   onClick={() => setToggle(false)}>
+                                         My Profile
+                                   </Link>
+                                   <Link 
+                                   href='/create_post'
+                                   className="dropdown_link items-center" 
+                                   onClick={() => setToggle(false)}>
+                                         Create Post
+                                   </Link>
+                                   <button type="button" onClick={() => {
+                                        setToggle(false);
+                                        signOut()
+                                   }} className="mt-5 w-full black_btn">
+                                        Sign Out
+                                   </button>
+                              </div>
+                        )
+                    }
+               </div>
+          ) : (
+               <>
+               {
+                    providers && Object.values(providers).map((providers) => (
+                      <button type="button" key={providers.name} 
+                      onClick={() => signIn(providers.id)} 
+                      className="black_btn">
+                         Sign In
+                      </button>                         
+                    ))
+
+               }
+               </>
+          )}
      </div>
     </nav>
   )
