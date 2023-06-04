@@ -7,17 +7,17 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { AiOutlineReddit } from 'react-icons/ai'
 
 const Nav = () => {
-     const isUserLogIn = true;
+     const { data: session } = useSession()
      const [providers, setProviders ] = useState(null);
      const [toggle, setToggle] = useState(false);
 
      useEffect(() => {
-          const setProviders = async () => {
+          const getProviderData = async () => {
                const response = await getProviders();
-
+                    
                setProviders(response);
           }
-          setProviders();
+               getProviderData();
      },[]);
 
   return (
@@ -25,10 +25,9 @@ const Nav = () => {
      <Link href='/' className="flex gap-2 flex-center logo_text">
           DumbCoding <AiOutlineReddit />
      </Link>
-
      <div className="sm:flex hidden">
        {
-          isUserLogIn ? (
+          session?.user ? (
                <div className="flex gap-3 md:gap-5">
                     <Link href='/create-post' className="black_btn">
                          Create Post
@@ -38,7 +37,7 @@ const Nav = () => {
                     </button>
 
                     <Link href='/profile'>
-                         <Image src='/assets/images/logo.svg' width={37} height={37} className="rounded-full" alt="profile" />
+                         <Image src={session?.user.image} width={37} height={37} className="rounded-full" alt="profile" />
                     </Link>
                </div>
           ):(
@@ -60,9 +59,9 @@ const Nav = () => {
 
      <div className="sm:hidden flex relative">
           { 
-          isUserLogIn? (
+          session?.user ? (
                <div className="flex">
-                    <Image src='/assets/images/logo.svg' width={37} height={37} className="rounded-full" alt="use profile" onClick={() => setToggle((current) => !current)} />
+                    <Image src={session?.user.image} width={37} height={37} className="rounded-full" alt="use profile" onClick={() => setToggle((current) => !current)} />
 
                     {
                         toggle && (
