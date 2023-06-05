@@ -2,12 +2,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Form from '@/components/Form';
 import { findDOMNode } from 'react-dom';
 import { sendStatusCode } from 'next/dist/server/api-utils';
 
 const CreatePost = () => {
+     const router = useRouter();
+     const { data: session } = useSession();
      const [submitting, setSubmitting] = useState(false);
      const [post, setPost] = useState({
           title: '',
@@ -32,7 +34,7 @@ const CreatePost = () => {
                     })
                })
                if(response.ok){
-                    Router.push('/');
+                    router.push('/');
                }
           } catch(error){
            console.log(error);
