@@ -168,3 +168,8 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+.link {
+  border: 1px solid orange;
+  color: blue;
+}
