@@ -36,7 +36,7 @@ const PostCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                     </div>
                </div>
                <div className="flex flex-col gap-4 mt-5">
-                              <h3>{post.title}</h3>
+                              <h3 className='font-satoshi font-semibold text-base text-gray-700'>{post.title}</h3>
                               <p className='my-4 font-satoshi text-sm text-gray-700'>{post.about}</p>
                <div className='flex justify-between items-start gap-5 link form_input'>
                     <p className='font-inter text-sm blue_gradient cursor-pointer'>{post.link}</p>
