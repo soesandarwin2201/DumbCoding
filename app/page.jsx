@@ -1,3 +1,5 @@
+import Feed from "@/components/Feed";
+
 const Home = () => {
      return ( 
           <section className="w-full flex-center flex-col">
@@ -10,7 +12,7 @@ const Home = () => {
                </h1>
                <p className="desc text-center"> Dumbcoding is an open-source blog app for every who want to learn software engineering. I will share all the resources for you journey.</p>
 
-               {/* feed */}
+               <Feed />
           </section>
       );
 }
