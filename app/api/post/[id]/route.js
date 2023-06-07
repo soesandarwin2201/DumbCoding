@@ -6,7 +6,7 @@ export const GET = async (request, {params}) => {
           await connectToDB();
           const post = await Post.findById(params.id).populate('creator');
           if(!post) return new Response("Post not found", { status: 404})
-          return new Response(JSON.stringify(posts), {
+          return new Response(JSON.stringify(post), {
                status: 200
           })
      }catch(error){
