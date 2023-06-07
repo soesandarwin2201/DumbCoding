@@ -6,7 +6,7 @@ const Home = () => {
                <h1 className="head_text text-center">
                     Start You Journey
                     <br className="max-md:hidden" />
-                    <span className="orange_gradient text-center">
+                    <span className="text-center">
                          With DumbCoding
                     </span>
                </h1>

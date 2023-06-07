@@ -29,17 +29,18 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Professional Portfolio] <a name="about-project"></a>
+# 📖 [Start Your coding journey with DumbCoding] <a name="about-project"></a>
 
-"Professional Portfolio website with three.js " is a show off my skills and project as the personal portfolio. 
+"This is the Next.js fullstack application for the people who want to learn programming .User can see the collection of the resources from absolute beginner to professional . User can create the account and can post their own course"
 
 
 ## 🛠 Built With <a name="built-with"></a>
 
 * React
-* React three fiber
-* React three drei
-* Three JS
+* Next.js
+* MongoDB
+* mongoose
+* google cloud
 * Tailwind css
 * Maath 
 * Framer-motion
@@ -62,10 +63,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-
-- User can interact with 3d model
-- add the motion and animation
-- User can rotate and see the detail tech stack
+- User can create the Blog post with source
+- User can edit and modify the post
+- User can delete the post
+- User can see the collection of resource
+- User can go to other user profile 
+- User can search with user name , tag name and title
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,10 +96,10 @@ In order to run this project you need:
 * HTML and CSS
 * JAVASCRIPT (ES6/...)
 * React.js
-* React Three Fiber
-* Three.js
-* React Three Drei
-* Tilt
+* Next.js
+* MongoDB
+* mongoose
+* tailwind css
 * npm
 * Node.js
 * Any code editer (vs code)
@@ -106,7 +109,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-```cd https://github.com/soesandarwin2201/professional-portfolio-website```
+```cd https://github.com/soesandarwin2201/coding-journey-with-next.js/```
 
 ### Install
 
