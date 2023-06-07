@@ -23,8 +23,23 @@ const MyProfile = () => {
        router.push(`/update-post?id=${post._id}`)
      }
 
-     const handleDelete = async () => {
+     const handleDelete = async (post) => {
+      const isConfirmed = confirm('Are you sure you want to delete this post?');
 
+      if(isConfirmed){
+        try{
+         await fetch(`/api/post/${post._id.toString()}`, {
+          method: 'DELETE',
+         });
+         const filterPosts = post.filter(item => item._id !== post._id);
+
+         setPosts(filterPosts);
+        }
+        catch(error){
+          console.log(error);
+        }
+      }
+       
      }
      return ( 
           <Profile  
