@@ -73,7 +73,7 @@ const Nav = () => {
                                          My Profile
                                    </Link>
                                    <Link 
-                                   href='/create_post'
+                                   href='/create-post'
                                    className="dropdown_link items-center" 
                                    onClick={() => setToggle(false)}>
                                          Create Post
