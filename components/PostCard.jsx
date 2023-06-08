@@ -47,7 +47,7 @@ const PostCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                               <h3 className='font-satoshi font-semibold text-base text-white'>{post.title}</h3>
                               <p className='my-4 font-satoshi text-sm text-white'>{post.about}</p>
                <div className='flex justify-between items-start gap-5 link form_input'>
-                    <p className='font-inter text-sm orange_gradient cursor-pointer'>{post.link}</p>
+                    <p className='font-inter text-xs orange_gradient cursor-pointer overflow-hidden'>{post.link}</p>
                     <div className="copy_btn" onClick={handleCopy}>
                     <Image
             src={
@@ -61,7 +61,7 @@ const PostCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
           />
                     </div>
                </div>
-               <p className='font-inter text-sm orange_gradient cursor-pointer' onClick={() => handleTagClick && handleTagClick(post.tag)}>{post.tag}</p>
+               <p className='font-inter text-sm orange_gradient cursor-pointer' onClick={() => handleTagClick && handleTagClick(post.tag)}>#{post.tag}</p>
                {session?.user.id === post.creator._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
