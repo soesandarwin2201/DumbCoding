@@ -37,7 +37,7 @@ const Feed = () => {
 
   useEffect(() => {
     const getPostsData = async () => {
-      const response = await fetch('http://localhost:3000/api/post');
+      const response = await fetch(`/api/post`);
       const data = await response.json();
       setPosts(data);
     };
