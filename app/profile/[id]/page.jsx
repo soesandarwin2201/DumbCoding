@@ -8,7 +8,6 @@ const UserProfile = ({params}) => {
      const searchParams = useSearchParams();
      const userName = searchParams.get('name');
      const [userPost, setUserPosts] = useState([]);
-     console.log(userPost);
       
      useEffect(() => {
           const fetchPosts = async() => {
